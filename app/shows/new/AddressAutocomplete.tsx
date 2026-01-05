@@ -1,5 +1,11 @@
 "use client";
 
+declare global {
+  interface Window {
+    google: any;
+  }
+}
+
 import { useEffect, useRef, useState } from "react";
 
 type Props = {
@@ -14,7 +20,8 @@ export default function AddressAutocomplete({
   onKmCalculated,
 }: Props) {
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
+  const autocompleteRef = useRef<any>(null);
+
 
   const [loadingKm, setLoadingKm] = useState(false);
 
